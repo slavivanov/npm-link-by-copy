@@ -6,22 +6,16 @@ const yargs = require("yargs");
 const cwd = process.cwd();
 const argv = yargs.argv;
 
-const log = (...msg) => console.log("[nlc]", ...msg);
-log.verb = argv.verbose ? log : () => {};
-log.err = (...msg) => console.error("[nlc] [error]", ...msg);
-
 argv._.forEach(moduleName => {
-  const mlog = (...msg) => log("[" + moduleName + "]", ...msg);
-  mlog.verb = (...msg) => log.verb("[" + moduleName + "]", ...msg);
-  mlog.err = (...msg) => log.err("[" + moduleName + "]", ...msg);
+  console.log("Copying [" + moduleName + "]");
   const modulePath = globalRequire.resolve(moduleName);
 
   const fullDestPath = path.join(cwd, "node_modules", moduleName);
   fs.copy(modulePath, fullDestPath, { dereference: true }, error => {
     if (error) {
-      mlog.err("Cannot copy", error.message);
+      console.log("Cannot copy [" + moduleName + "]. Error: " + error.message);
     } else {
-      mlog.verb("Copy done");
+      console.log("Copy of [" + moduleName + "] finished.");
     }
   });
 });
