@@ -1,0 +1,15 @@
+{
+  "name": "npm-link-by-copy",
+  "version": "0.1.0",
+  "description": "Like npm link, but copies the package instead of symlinking to it",
+  "main": "index.js",
+  "bin": {
+    "npm-link-by-copy": "index.js"
+  },
+  "repository": "slavivanov/npm-link-by-copy",
+  "dependencies": {
+    "fs-extra": "^4.0.1",
+    "require-global-node-module": "1.1.0",
+    "yargs": "^8.0.2"
+  }
+}
