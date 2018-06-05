@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Like npm link, but copies the package instead of symlinking to it",
   "main": "index.js",
+  "license": "MIT",
   "bin": {
     "npm-link-by-copy": "index.js"
   },

@@ -20,6 +20,16 @@ npm install -g npm-link-by-copy
 npm-link-by-copy [..modules]
 ```
 
+For example:
+
+```sh
+npm-link-by-copy lodash express
+```
+
 <Links/>
 
 [npm link]: https://docs.npmjs.com/cli/link
+
+```
+
+```
