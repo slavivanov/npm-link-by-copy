@@ -26,6 +26,16 @@ For example:
 npm-link-by-copy lodash express
 ```
 
+### Exclude directories
+
+- **`--exclude`** exclude directories
+
+For example:
+
+```sh
+npm-link-by-copy --exclude node_modules,.git lodash express
+```
+
 <Links/>
 
 [npm link]: https://docs.npmjs.com/cli/link

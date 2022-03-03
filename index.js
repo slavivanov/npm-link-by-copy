@@ -7,6 +7,7 @@ const yargs = require("yargs");
 
 const cwd = process.cwd();
 const argv = yargs.argv;
+const excludes = argv.exclude ? argv.exclude.split(",") : [];
 
 argv._.forEach((moduleName) => {
   console.log("Copying [" + moduleName + "]");
@@ -30,9 +31,9 @@ argv._.forEach((moduleName) => {
     {
       dereference: true,
       filter: (path) => {
-        if (fs.lstatSync(path).isDirectory()) {
-          const  lastPart = path.split("/").pop()
-          return (lastPart !== '.git' && lastPart !== 'node_modules');
+        if (excludes.length > 0 && fs.lstatSync(path).isDirectory()) {
+          const  lastPart = path.split("/").pop();
+          return (excludes.indexOf(lastPart) === -1);
         }
         return true;
       },
