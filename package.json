@@ -1,6 +1,6 @@
 {
   "name": "npm-link-by-copy",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Like npm link, but copies the package instead of symlinking to it",
   "main": "index.js",
   "license": "MIT",
